@@ -1,0 +1,457 @@
+[
+  {
+    "id": "2e2852fce5216b3c59dc1190cca45961e2602cbb01e754376bd1500accef4b28",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! Requirements specification WMS Description of functional requirements for the future WMS of <customer> at <city> in <country>. Purchaser: <Customer> <Address1> Contact person: <Customer> <Name1> <Contact data1> This document is structure by the VDI-Richtlinie 3601: Warehouse management systems. The overarching technical requirements specification remains in effect. 1. General information This WMS specification describes the functional requirements for the future WMS at the new location in <city> <country> (LOC), which is to be set as part of the overall logistics concept. The requirements for the software are described, as far as possible, independently of the specific technical concept since different implementation alternatives may arise depending on the material flow and storage system provider. Concept-specific requirements must be presented by the provider in the offer. The specification must always be interpretated in connection with the ",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_1",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 1
+    }
+  },
+  {
+    "id": "65d25e898191f2a110f60bc50bea001cbcc86b1ff17a4aab828aa88dd7fc021e",
+    "text": "g on the material flow and storage system provider. Concept-specific requirements must be presented by the provider in the offer. The specification must always be interpretated in connection with the respective technical concept and layout chosen by the provider. For the tender, particularly in material flow and storage technology we refer explicit to the overarching technical specification. The provider is requested to coordinate the performance requirements of the individual trades and control-related aspects with the general contractor and to define interfaces. 2. Overview and material flow The company <customer> is planning to build a new warehouse at LOC. Figure 1 shows an overview of the material flow and warehouse areas:",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_1",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 1,
+      "page": 1
+    }
+  },
+  {
+    "id": "c0e8baaba1b7ebcbe2a4b4b9160512d859678088eb612ba505307326b7298a51",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! Figure 1: Simplified material flow overview Details of the overall concept and the construction conditions can be found in the technical specification or arise from the general provider\u2019s individual technical concept. 3. IT ecosystem The task of the future WMS are process control, monitoring, and optimization of internal warehouse processes. To do this interfacing with adjacent IT systems is required. The following possible It system concept options are acceptable in the current tender (see fig. 2). Figure 2: IT ecosystem Option 1 describes the parallel use of different process and control level IT systems. The providers WMS (teal) interfaces either with the ERP or the WMS 1 for order and task management and with the providers MFS for (teal) for material flow control. Option 2 describes an isolated IT setup where the new warehouse setup is fully controlled by the providers IT stack.",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_2",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 2
+    }
+  },
+  {
+    "id": "58342f8612722dc0dd0a37bc6c8f2a535ca32974858c5eb6af41e8bfa11ed478",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! The provider is requested to indicate the costs/expenses for his scope of delivery for each of the options separately. The provider is also requested to present what he considers to be the main advantages and disadvantages of the options and to indicate the preferred option. Additional solution options must be described and justified by the provider. Systems to be replaced Inventory and order management at the old location is currently done in the ERP system. This currently handles storage location management as well as administration and implementation of storage and retrieval strategies and shall be replaced by the new WMS at LOC. For the new warehouse location in LOC, the entire inventory and order management is to be covered by the new WMS. The provider is requested to introduce the most current and sufficient stable version of the WMS at the time of implementation. Host System <Customer> uses <ERP Product Name> <Version> as its business ma",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_3",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 3
+    }
+  },
+  {
+    "id": "8ff1aa0ef7cc88080bdf147abc7da0176e94de130161ff86546ff9a3d89c2014",
+    "text": " provider is requested to introduce the most current and sufficient stable version of the WMS at the time of implementation. Host System <Customer> uses <ERP Product Name> <Version> as its business management host system. This is used at all locations of <customer> and is the leading system for material master data and overall inventory management. The following lists provide an overview of the minimum required data and must be supplemented by the provider based on his technical concept. Interface between Host ERP and WMS: \u2022 Material master data o Production lot ID o Serial number o Best before date o Image o etc. Packaging specifications are not relevant in the interface between Host ERP and WMS. Based on the previously defined rules, the following data is transferred from the WMS to the Host ERP. \u2022 Material master data o Transfer of best before date (due to master data collection for new items) o Further information (see following sections) o Order / tasks status change o Inventory status change \u2022 ASN for planned deliverables are created by the WMS and transferred to the HOST ERP for distribution along the supply chain. Based on the previously defined rules, the following data is",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_3",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 1,
+      "page": 3
+    }
+  },
+  {
+    "id": "0e1330b82ad4dff4cf1960557075c4c939ad79f4d8ebf2a335c961b3a20109e3",
+    "text": "tatus change \u2022 ASN for planned deliverables are created by the WMS and transferred to the HOST ERP for distribution along the supply chain. Based on the previously defined rules, the following data is transferred from Host ERP to the WMS. \u2022 ASN from suppliers are received by the Host ERP and forwarded to the WMS. \u2022 Material master data \u2022 Warehouse order / task o Inbound o Reorganization o Outbound The inventory update between WMS and ERP should be able to be triggered from the WMS, including transfer of best before data.",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_3",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 2,
+      "page": 3
+    }
+  },
+  {
+    "id": "91e1adfa67f7aeeda3e83fb48418686ed03614078b713464db2f6c79a7c5be15",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! Transport data on intralogistics transports must be exchanged between WMS and Host Erp must be able for tracking and tracing at load carrier level. It is relevant here which item was picked from which load carrier. The provider is responsible to create transport units in their IT stack (teal). Interfaces between WMS and adjacent systems In case of option 1 the provider shall explain which data are shared with WMS 1 instead of the HOST ERP. Interface to subordinate systems WMS - MFS The current MFS currently used is to be replaces. Since individual material flow and storage components are often supplied with the manufacture\u2019s own MFS, the use of one or more MFS offered by the WMS or material flow and storage equipment provider is to be used as the leading MFS. A near standard implementation is preferred. The following are general requirements for the MFS. As part of the provider\u2019s offer, concept-specific requirements must be supplemented by the ",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_4",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 4
+    }
+  },
+  {
+    "id": "672ad6805403b5a5325bc572229b7f634d0c00ff4e21c8a93d74dba9cf45b802",
+    "text": "eading MFS. A near standard implementation is preferred. The following are general requirements for the MFS. As part of the provider\u2019s offer, concept-specific requirements must be supplemented by the provider. Siemens S7 controllers are usually used. In individual cases, the provider\u2019s own MFS of the respective technical component can be used. The connection to a WMS should be made via standard interfaces, and telegrams are transmitted via TCP/IP socket interface. For example, the following components must be considered: \u2022 Conveyor technology (e.g. roller conveyors) \u2022 Light good storage technology (storage types) \u2022 Workstation technology (e.g. pick workstation) A list if the components to be connected to the MFS must be documented in an IT map. The WMS including the MFS component must integrate the material flow and storage system setup offered by the provider. WMS functions and MFS functions must be differentiated in the offer. Interfaces The provider shall list the interfaces as specified before. Additionally, the following interface technologies must be supported and shall be offered: \u2022 XML \u2022 ODBC (for database access) \u2022 TCP/IP \u2022 RFC \u2022 REST IT hardware Client- and server hardwar",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_4",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 1,
+      "page": 4
+    }
+  },
+  {
+    "id": "3e5a94a167fd89afe59a57a2ae8963d9b87e965ecfb36b12cdb646074b3c7c0b",
+    "text": "ified before. Additionally, the following interface technologies must be supported and shall be offered: \u2022 XML \u2022 ODBC (for database access) \u2022 TCP/IP \u2022 RFC \u2022 REST IT hardware Client- and server hardware is provided by <customer> IT in a largely standardized and preconfigured manner. The standards are visible, but specific requirements from the provider must be agreed upon before the end of the bidding time. The servers are hosted in minimum in two parallel or redundant data centers. The future WMS must support redundancy, backup, and recovery scenarios. The provider is requested to present his concept or required specification regarding IT hardware.",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_4",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 2,
+      "page": 4
+    }
+  },
+  {
+    "id": "f37f33bcf6abe6e47ce06fd41c615d6ad5b987c5b784aa85d05d97f243bec671",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! Cyber security The system must be compliant with IT security and cyber security rules based on the recognized state of the art and actual regulations at the time of implementation. The provider is requested to present his cyber security concept. 4. Migration As part of the migration, the transfer of existing data and the removal of incorrect data sets must be ensured. A gradual introduction if the WMS with gradual inventory build-up through goods receipt from suppliers or relocation from the old warehouse is planned. In addition to the general data of the WMS, the migration of in minimum the following data must be ensured: \u2022 Inventory \u2022 Documents \u2022 Product master Data \u2022 Warehouse master data The provider is requested to present its migration concept as part of the tender. 5. Functional requirements along the material flow process In this chapter functional requirements of the currently planned material flow and storage components related to the",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_5",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 5
+    }
+  },
+  {
+    "id": "74ff0b057a2cc3b5e95364beb39c1dd45fe51e592686730699699037cdb9e1ec",
+    "text": "t as part of the tender. 5. Functional requirements along the material flow process In this chapter functional requirements of the currently planned material flow and storage components related to the functional areas are described. More process details will be provided in the following chapters. Load carrier management requirements Every container that leaves the warehouse or returns is recorded in the WMS. Load carrier washing cycle are controlled via the WMS or manual at the workstation. Reporting of contamination by employees via a dialog and setting of a flag. Time based setting of the flag by a parametrizable time frame. After the cleaning or clarification process the load carriers are returned in the normal load carrier cycle. Empty load carrier management requirements The picking stations are automatically supplied with empty load carriers. Empty load carriers that are not required are initially moved to the empty load carrier storage area. If the adjustable maximum of empty load carriers has already been stored there, a fix amount of load carriers can be looped in the conveyor loop close to the picking station. Empty cartoon carrier management Provision of empty shipping c",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_5",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 1,
+      "page": 5
+    }
+  },
+  {
+    "id": "20d58389e057cdcc9339be22f8e023a6dec0611b3c57fec8d9c13ed5e859a948",
+    "text": "ad carriers has already been stored there, a fix amount of load carriers can be looped in the conveyor loop close to the picking station. Empty cartoon carrier management Provision of empty shipping cartons is done manually by triggering the operator via the WMS GUI. 5.1. Automatic light goods storage requirements Additional information as listed in the following chapters must be considered. Further requirements in the area of reporting point processing: \u2022 Ordering of storage and retrieval crane or AMR \u2022 Equal distribution of stock on different aisles \u2022 Consideration of infeed and outfeed aisles Further requirements in the area of capacity monitoring: \u2022 Consideration of the capacity of active workstations and their buffer",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_5",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 2,
+      "page": 5
+    }
+  },
+  {
+    "id": "d59b3a10df08c2c41736b69bc869b8cd287efa5360ddc56d7247637c7f31d15f",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! \u2022 Sequencing of load carriers for the picking process Further requirements in the area of order allocation: \u2022 The creation of the outbound orders is described in the chapter outbound. The crane or AMR pulls the next relevant order from the existing orders. The order is carried out using a double cycle if possible. Further requirements in the area of issue handling (contour error, no-read, etc. ): \u2022 If a compartment full (unexpectedly): Block destination location and store in alternative location. \u2022 If compartment is empty (unexpectedly): Block source location; Reject picking order and trigger new order (warehouse task). \u2022 In case of no-read: Move load carrier to clearing workstation. 5.2. Order buffer load carrier requirements The order load carrier buffer is used for sequenced retrieval for the picking workstation. In addition, depending on the technical concept, there is a cardboard carton buffer. Depending on the provider\u2019s technical concept",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_6",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 6
+    }
+  },
+  {
+    "id": "2f0df100c14259fddeea9df6abf3b044d9944cc784a74032502b1edcc4709195",
+    "text": "r buffer is used for sequenced retrieval for the picking workstation. In addition, depending on the technical concept, there is a cardboard carton buffer. Depending on the provider\u2019s technical concept, both functional units can also be implemented in one storage and retrieval system. Further requirements in the area of reporting point processing: \u2022 Lift assignment, if necessary, with half-play logic. \u2022 Equal aisles distribution depending on the filling degree. \u2022 Lift assignment according to capacity. Further requirements in the area of priority control: \u2022 Outfeed according to delivery priority, order type, and loading time. \u2022 Sequencing for the picking workstation. Further requirements in the area of capacity monitoring: \u2022 Consideration of the capacity of the active workstations and their buffer. Further requirements in the area of order allocation: \u2022 The creation of the outbound order is described in chapter outbound. The allocation of orders and the allocation of lifts (if needed), are carried out taking priority and capacity into account. Further requirements in the area of issue handling (contour error, no-read, etc. ): \u2022 If compartment is full: block the target location; Store",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_6",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 1,
+      "page": 6
+    }
+  },
+  {
+    "id": "f3f56c22d05eda1ee9343d92e9eb8229b84327e985441afeabf91f9c43b52ec7",
+    "text": "re carried out taking priority and capacity into account. Further requirements in the area of issue handling (contour error, no-read, etc. ): \u2022 If compartment is full: block the target location; Store in alternative empty location. \u2022 If compartment is empty: Block the source location; Report to the control center; Manual order and task adjustment. \u2022 In case of no-read: Move load carrier to clearing workstation. 5.3. Test and emulation requirements As part of the project and WMS implementation, the use of emulation tools for functional and integration testing if the WMS without the real physical warehouse setup is expected. 6. Core function 6.1. Warehouse structure The new warehouse in LOC will include various material flow and storage technologies depending on the technical concept of the provider. As part of this tender, the requirements and conditions presented here must be adjusted to the individual technical concept of the provider. On overview of the material flow is presented in fig. 1. Storage types and locations",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_6",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 2,
+      "page": 6
+    }
+  },
+  {
+    "id": "1a220b6c1454332ab86e09058fd54a685359b74ca44eb87957f145f60f444d28",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! The following storage types must be taken into account at the new location and managed using the WMS. Please consider the overarching technical specification for additional details. Light good storage The <customer> manages and moves in the warehouse a multitude of small ambient food items in load carriers that shall be stored in a ASRS. In the ASRS double-deep storage and fast-mover zones must be established. Per load carrier single product ID and single production lot ID is only allowed. In the future multi- compartment load carriers shall be used and must support single product ID and single production lot ID per compartment. The WMS must take into account the prohibition on storing the same items with different production lot IDs together. Depending on the technical concept, it is conceivable that this storage technology in addition to product load carriers can buffer empty load carriers. The light goods ASRS is distributed in fire protecti",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_7",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 7
+    }
+  },
+  {
+    "id": "a053c7b6f97914e44692bf326be0ce895074e6caafdc1651b905f0dcfaef3f90",
+    "text": "nding on the technical concept, it is conceivable that this storage technology in addition to product load carriers can buffer empty load carriers. The light goods ASRS is distributed in fire protection sections. Bulk storage areas Bulk storage areas are used as inbound area and outbound area. The bulk storage areas are marked on the ground with barcode labels. In minimum the following bulk storage areas should be provided: \u2022 Inbound bulk-area to interim store the truck load after unloading. Capacity for 50 pallets. \u2022 Cross-dock area near the inbound dock unloading area, where products can be transferred directly from inbound to outbound. \u2022 Outbound bulk-area near the outbound dock and loading area. Where orders can be stored interim before truck loading. Capacity for 70 pallets. A unique identification of storage location is needed, that might include the following aspects: \u2022 Storage type \u2022 Aisle \u2022 Physical blockages (e.g. pillar) \u2022 Width, height, depth Each load carrier is tagged with a barcode label and must be married with its storage location. Workstation 10 picking workstation and 1 clearing workstation are located in the picking area. The following functions and processes ca",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_7",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 1,
+      "page": 7
+    }
+  },
+  {
+    "id": "277fe9d3922b86efccdef2174d6996ce82ab764df4e866407295530bd2127fef",
+    "text": "h a barcode label and must be married with its storage location. Workstation 10 picking workstation and 1 clearing workstation are located in the picking area. The following functions and processes can be handled at the picking workstation: \u2022 Picking into single-order order load carrier. \u2022 Picking into single-order cartonnage cartons. \u2022 Kit building The following functions and processes can be handled at the clearing workstation: \u2022 Clarification of no-read load carrier \u2022 Clarification of unexpected full carrier \u2022 Clarification of damaged or dirty carrier \u2022 Etc. The workstations are connected via conveyor system to the ASRS. 6.2. Material master data All WMS-typical article master data and information is managed. This includes as minimum: \u2022 Production lot ID",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_7",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 2,
+      "page": 7
+    }
+  },
+  {
+    "id": "b52ac89e2e6490bfe1b523b6ab63262571c93f42af318ec5fea87c9f67ac6454",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! \u2022 Serial number \u2022 Best before data \u2022 Product name \u2022 Item image The material master data are already available in the host system and should be adopted and used in the WMS. The EAN article number will become important in the future. The WMS must be able to provide master data correction and updates to the host system. E.g. new weight, individual best-before data. 6.3. Inventory management This chapter describes basic requirement for inventory management. Further information can be found in the subchapter handling units management. Inventory update between WMS and Host The inventory between both systems must be synchronized accurately as possible to the second and kept up to data. Inventory shortage Inventory shortages are issues where it is determined during order processing that stock is either not deliverable (e.g. if damages) or is not available in the required quantity (e.g. discrepancy between system-managed and physical inventory). If this",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_8",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 8
+    }
+  },
+  {
+    "id": "f420ec8922335018ed699bbbe62a2c0ed943aa4e9a9c4063ceacf69224da57c2",
+    "text": "ed during order processing that stock is either not deliverable (e.g. if damages) or is not available in the required quantity (e.g. discrepancy between system-managed and physical inventory). If this happens, the WMS first checks whether additional material can be found in another storage location (avoiding partial deliveries) and created new warehouse tasks to pick the difference. If no additional material is available, the WMS checks whether partial delivery is allowed. If partial delivery is allowed finish the order with less products. If partial delivery is not allowed (1) finish the order with stock from another location. (2) If no other stock is available cancel the order and report to the host system. Blocking inventory It must be possible to manually block stock or storage location in the WMS at any time. This means that these goods / locations are no longer used for order fulfillment. 6.4. Transport management This chapter describes the requirements for the movement of load carriers and equipment in the warehouse from source to destination as well as relevant optimization aspects. Each load carrier is tagged with a barcode label and married to the current storage location",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_8",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 1,
+      "page": 8
+    }
+  },
+  {
+    "id": "181fc819017ae57099517253e30571679d13245cb58abd25db6c031459940a11",
+    "text": "arriers and equipment in the warehouse from source to destination as well as relevant optimization aspects. Each load carrier is tagged with a barcode label and married to the current storage location. In case of transport, the minimal required information is to know that the load carrier is in between source and destination message point. Depending on the concept of the provider more details can be provided. Transports need to be listed in the WMS and a transport protocol is required. The provider is requested to present their transport management concept. 6.5. Inbound Inbound includes the acceptance and receiving of goods. Unloading takes place in the inbound area, from where the goods are moved to the deconsolidation area to remove additional packaging and to place items in the warehouse internal used load carrier. Lage part s of the inbound process are handled in the ERP system, that communicates the results of the inbound process to the underlying WMS. The currently planned intersection and system interfacing can be found in the following chapters.",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_8",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 2,
+      "page": 8
+    }
+  },
+  {
+    "id": "6a93cdaf739260fb9ecccf324af74cd35e979884d03fa394b19f4e12d730bf8e",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! The provider is requested to present their inbound concept. \u2022 Information about goods for non-WMS controlled areas (not in fig. 1) will not be shared with the WMS. ASN For some goods ASN are in place in advanced. When the warehouse order is written, the data record relating to the inbound load carrier marriage are transferred to the WMS (notified). A general distinction is made between these cases: \u2022 Case 1: There is no system-based linking or notification of the goods, or the number of items contained in the load carrier with the orders. These deliveries must be recorded at a manual goods receipt process and marriage manually to the load carrier. \u2022 Case 2: The load carriers are already married to the goods and notified by the system, but there is no information on the quantity per HU. The load carrier delivers must be deconsolidated, and the quantity must be added manually. \u2022 Case 3: The load carriers are already fully known (notified) in term",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_9",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 9
+    }
+  },
+  {
+    "id": "af46555c50fa94ceeacc219d46bf85a54bf1c713b6be6fe23bf243de48319f67",
+    "text": "no information on the quantity per HU. The load carrier delivers must be deconsolidated, and the quantity must be added manually. \u2022 Case 3: The load carriers are already fully known (notified) in term of material and quantity and can be fully processed in the deconsolidation area. Unloading The trucks are unloaded using forklift. This process is not controlled by the WMS. The main receiving activities take place in the ERP system. The load carrier shall be moved to the inbound bulk storage area. Each load carrier shall be married with the storage location in the WMS by scanning the pallet and the location barcode. The labeled load carriers are than linked to the master data from the ERP system. All related documents will by linked via the barcode. A check for specific shortfall or incorrect deliveries is only carried out during deconsolidation. Special case Receiving based on storage rebooking must be possible. Deconsolidation Deconsolidation takes place parallel to the goods receipt process. Inbound load carrier like pallets and boxes are transported to the deconsolidation area. Here operators scan the label and request detail information. Operators will open the pallet / box and ",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_9",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 1,
+      "page": 9
+    }
+  },
+  {
+    "id": "d75d67601223f8e1d15a1fb00ebb8479a0d2f3e2e34aa200618385096747dd75",
+    "text": "rocess. Inbound load carrier like pallets and boxes are transported to the deconsolidation area. Here operators scan the label and request detail information. Operators will open the pallet / box and deconsolidate the items into warehouse load carriers. This process is controlled by the WMS. The deconsolidation process in must support in minimum: \u2022 Call of date from the ERP base on the inbound load carrier ID \u2022 Marriage of item with warehouse load carrier \u2022 Guidance to build single product, single production-lot, single best before data load carriers. \u2022 Issue handling for: o Unknown item forward to ERP inbound process o Expired best before-date => reject; report in WMS; inform ERP o Damaged item => reject; report in WMS; inform ERP o Missing item forward to ERP inbound process After deconsolidation warehouse load carriers are transported to the light goods ASRS. Controlled by the providers WMS and MFS. After deconsolidation inbound load carriers are handled in the ERP processes. Storing in the light goods ASRS",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_9",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 2,
+      "page": 9
+    }
+  },
+  {
+    "id": "d995794e59154e2603d291ff70b2c4e3571647e3740e634f146879940d4b6fe3",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! The ASRS primarily stores small food items suitable for ambient storage areas. The inbound strategy must be configurable in the WMS and reflect in minimum: \u2022 Different velocity classes (fast / slow moving) \u2022 First expire \u2013 first out (FEFO) \u2022 Equal distribution and redundance access for fire protection areas If the goods are married to the load carrier the carrier is placed on the ASRS infeed. The load carrier will be scanned. Before entering the ASRS a contour check takes to ensure that only suitable load carriers / loads are stored in the ASRS. \u2022 In case the contour check fails the load carrier will be removed and adjusted manually. \u2022 In case the contour check passed the load carrier will be transported to the storage location in control of WMS and MFS. All goods stored in the ASRS are physically located in load carriers. Each load carrier is labeled with a barcode. The WMS must manage the inbound strategy and allocate a load carrier to a stor",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_10",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 10
+    }
+  },
+  {
+    "id": "6ad9f4b6295765154f5c73fdfd7192dba1641e7a48db1a7555f221dd59736fa1",
+    "text": "d MFS. All goods stored in the ASRS are physically located in load carriers. Each load carrier is labeled with a barcode. The WMS must manage the inbound strategy and allocate a load carrier to a storage location. It also keeps the information to which storage location the load carrier is married. As soon as the load carrier is stored in the final storage location the inventory is updated in the WMS and the ERP informed. Stored stock is available for order fulfillment if no block status is set. It must be possible to carry out ad hoc inventory checks from the WMS. The WMS provider is requested to take into account the equal distribution of products to the individual fire protection areas. There must be an equal distribution in terms of the capacity utilization of the individual aisles and material-oriented cross distribution in the case of multiple load carriers per product. In the interest of reliability, he WMS provider must also take into account the equal distribution of material to the individual fire protection areas in its concept. The ABC classification for products should be taken into account (slotting). Fast-moving items should be stored in the front area up to a certain",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_10",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 1,
+      "page": 10
+    }
+  },
+  {
+    "id": "b25df1158c36c2c6b435062501caf30735c34cc1be8bfa71c510ac1afe95d71a",
+    "text": "o the individual fire protection areas in its concept. The ABC classification for products should be taken into account (slotting). Fast-moving items should be stored in the front area up to a certain maximum quantity. Storage in multi-deep storage should be carried out in a material-pure manner if possible. The provider is requested to present their storage strategies. Inventory feedback By confirming the storage in the ASRS the booking is made available in the WMS. A response is sent to the host system (ERP). 6.6. Warehouse internal processes Storage relocation Relocation of load carriers should be able to be triggered manually at any time. Depending in the selection in the dialog a transport task should be created, and the crane/AMR should be automatically processing the relocation. For storage optimization the WMS shall provide relocation suggestion that need to be confirmed by warehouse responsible roles before execution. E.g. transfer from a slow-moving to a fast-moving area. Control center The control center in the WMS has in minimum the following functions: \u2022 System monitoring \u2022 Performance monitoring (overall system; KPI monitoring) \u2022 Order monitoring \u2022 Best-before date mo",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_10",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 2,
+      "page": 10
+    }
+  },
+  {
+    "id": "51c6eeb4c46ed626c42ac47f44e950a35967dc48491942afe106fd26bc1976c2",
+    "text": "trol center The control center in the WMS has in minimum the following functions: \u2022 System monitoring \u2022 Performance monitoring (overall system; KPI monitoring) \u2022 Order monitoring \u2022 Best-before date monitoring",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_10",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 3,
+      "page": 10
+    }
+  },
+  {
+    "id": "0ca07d0815ff42e79f9002516f02dee200244ad170894d3f482580a7140a6137",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! The key figures must be made available on GUI connected to the WMS. Access via smartphone shall be offered optional. The provider is requested to present their control center concept. Stock movement log At least the following information is stored in he WMS warehouse movement log or warehouse monitor: \u2022 Product ID \u2022 Best before date \u2022 Production Lot ID \u2022 Order reference \u2022 Date of arrival / departure \u2022 Storage location \u2022 Number of movements \u2022 Source and destination location \u2022 Date and time Current workload The following information is relevant for optimized control of each process: \u2022 Current worklist \u2022 Traffic light regarding current order/backlog situation \u2022 Order details \u2022 Workload per warehouse area \u2022 Workload per sub-area The dialog should later also be able to be displayed on large monitors in the warehouse. An automatic refresh is necessary. 6.7. Outbound Order management To fulfill customer orders through the warehouse, the WMS takes outb",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_11",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 11
+    }
+  },
+  {
+    "id": "15670eef4d0603d63cc31bc83caf4c5ecc854a8d8994dfb6ac3c73e22a66675f",
+    "text": " also be able to be displayed on large monitors in the warehouse. An automatic refresh is necessary. 6.7. Outbound Order management To fulfill customer orders through the warehouse, the WMS takes outbound orders / tasks from the host (ERP) system. Currently outbound orders are released as batches of multiple orders. The order priority is determined on the one hand based on an order identifier, which is already created in the host (ERP) system and is included in the outbound order in the WMS and by taking into account the shipping condition on the host (ERP) system. The following order identifier exist: \u2022 AD Automatic scheduling \u2022 MD Manual scheduling \u2022 TD Today (highest priority) The status of one or more orders should be flexible and either blocked or controlled at a WMS workstation. Transferred deliveries are planned, for example, in picking batches. Outbound strategies The available stock should be determined across all warehouse fire protection areas, taking FEFO into account. Priority should be given to picking from the ASRS. Only in case of shortages cross-docking is considered. Picking",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_11",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 1,
+      "page": 11
+    }
+  },
+  {
+    "id": "e1ed771cc5eea4bb1a462fd02a970f22e5b20f425e612471daecf693f0f70176",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! Picking refers to the compilation of articles from an assortment into an order. At <customer> picking will in future take place at dedicated workstations. A cross dock picking option must be created if an inbound load carrier and its load shall directly be used for an order. This load carrier is than transported from inbound to outbound and bypasses deconsolidation, storing in the ASRS, and picking. The WMS shall guide the operators at the picking workstation related to product ID and quantity what to pick from the source load carrier to the order load carrier. The picking workstations are supplied with source load carriers from the ASRS. The picking is always carried out in order load carriers that are pure in terms of order. If an order load carrier created during picking is the only load carrier for the customer on a given day, this load carrier can be moved directly to the outbound area. A bypass must therefore be provided for these load ca",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_12",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 12
+    }
+  },
+  {
+    "id": "fe4d262f8a4845437da7547d37a0ce246a9c6ef3eab46463be90d1a83491abbc",
+    "text": "ier created during picking is the only load carrier for the customer on a given day, this load carrier can be moved directly to the outbound area. A bypass must therefore be provided for these load carriers so that these are transported directly from picking to the outbound area. Delivery and removal of carriers to the workstation is in control of WMS and MFS. The provider is requested to provide their picking concept and to include if different setups for new operators and experienced operators are available. Consolidation Everything for a customer that is sent under the same shipping condition may be consolidated. TD orders are not consolidated with other orders of the same customer but send individually. In case of multiple order load carriers for one customer they are consolidated in the consolidation area and wrapped to keep them together for the transport before they are moved and stored in the outbound area. Delivery and removal of carriers to the workstation is in control of WMS and MFS. The consolidation is done in control of the WMS and by WMS GUI dialogs. After consolidation the order load carriers are transported to the outbound are in control of WMS and MFS. Related tr",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_12",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 1,
+      "page": 12
+    }
+  },
+  {
+    "id": "2383411cbffd57263e4745c3d28dfb88fddc68176f37b5b9583be235a8f80f96",
+    "text": "S and MFS. The consolidation is done in control of the WMS and by WMS GUI dialogs. After consolidation the order load carriers are transported to the outbound are in control of WMS and MFS. Related transport tasks are created, and the transport executed and status reported to the host (ERP). The provider is requested to provide their consolidation concept and to include if different setups for new operators and experienced operators are available. Shipping When shipping to customers, the WMS shall call the tour planning from the host (ERP) and store the prepared order load carriers in load sequence for the truck at storage location of the outbound bulk- storage. The load carrier shall be married to the storage location in the WMS via the barcode information. Shipping labelling is done in control of the ERP and not described here. Loading control shall be done in the WMS: Reading the load carrier labels at the loading docks. Each load carrier label is scanned, and the dock label is scanned. The WMS shall offer a GUI dialog to confirm that the load carrier is loaded to the truck. Loading shall be reported to the ERP. Identification of load carriers shall be done via scanning. 6.8. Cy",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_12",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 2,
+      "page": 12
+    }
+  },
+  {
+    "id": "58b6646827ba5775b51a755062dbb326ef7061213dd8eecb164906ec8fb367f4",
+    "text": "ned. The WMS shall offer a GUI dialog to confirm that the load carrier is loaded to the truck. Loading shall be reported to the ERP. Identification of load carriers shall be done via scanning. 6.8. Cyber security In accordance with legal standards at the time of implementation and commonly accepted industry practices the implementation of cyber security measures is requested. This shall ensure the protection of sensitive information, system performance, and compliance with legal regulations. 6.9. Training The provider shall offer training for the following user groups:",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_12",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 3,
+      "page": 12
+    }
+  },
+  {
+    "id": "a528fa3a3311371f0b04dcdf40bd2d210020f2a551d7927ecbe16dfdb90e4523",
+    "text": "This document represents recombined, extracts from typical requirement specification as provided by customer or consulting companies in an early bidding phase. It does not represent a full specification document neither a full project scope! \u2022 Workstation operator \u2022 System administrators \u2022 Warehouse (area) responsible \u2022 Key-user of the software",
+    "metadata": {
+      "source_file": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "asset_path": "knowledge_base/raw/pdf/logistics_data_set.pdf",
+      "source_type": "pdf_text",
+      "locator": "page_13",
+      "file_hash": "37fb2b8abc7bc12e9dc78314687b5891c04ea7077782aea637175c68c02e8a25",
+      "chunk_number": 0,
+      "page": 13
+    }
+  }
+]

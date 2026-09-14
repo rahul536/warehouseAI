@@ -1,0 +1,13 @@
+GR created
+   ↓
+Truck arrives
+   ↓
+GR scanned
+   ↓
+Quantity validated
+   ↓
+Putaway movement created
+   ↓
+Entry → Bin
+   ↓
+Inventory updated

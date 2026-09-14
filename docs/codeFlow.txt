@@ -1,0 +1,76 @@
+1. Create and activate a virtual environment
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+If PowerShell blocks activation, run this once for the current terminal:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+
+Install the two dependencies:
+pip install psycopg[binary] python-dotenv
+Create requirements.txt:
+psycopg[binary]
+python-dotenv
+2. Add database configuration
+Create .env:
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=warehouse_ai
+DB_USER=postgres
+DB_PASSWORD=your_postgres_password
+Replace your_postgres_password with your local PostgreSQL password.
+Create .gitignore:
+.venv/
+.env
+__pycache__/
+Never commit .env; it contains your password.
+
+
+
+
+Orders
+├── get_order_details(order_number)
+└── get_order_allocation(order_number)
+
+Inventory
+├── get_item_inventory(item_id)
+└── get_inventory(limit)
+
+Movements
+└── get_movements(item_id)
+
+
+python app.py movements ITEM014 --limit 5
+python app.py order-details ORD10004
+python app.py order-allocation ORD10004
+python app.py item-inventory ITEM014
+python app.py inventory --limit 10
+
+
+test:
+python warehouse_agent.py "Why is ORD10004 only partially allocated?"
+python warehouse_agent.py "What is the inventory position for ITEM014?"
+python warehouse_agent.py "What is the inventory position for ITEM014?"
+python warehouse_agent.py "Which items have the lowest available inventory?"
+
+
+
+Warehouse question
+  → GPT selects a WMS tool
+  → Python runs your PostgreSQL query
+  → structured result returns to GPT
+  → clear warehouse explanation
+
+
+streamlit 
+
+streamlit run streamlit_app.py
+
+next step
+
+Add guardrails and observability
+- Validate inputs before database calls.
+- Return user-friendly messages for unknown orders/items and database outages.
+- Record which WMS tool the agent used and its result status.
+- Show a small “Checked order allocation / inventory / movements” trace in Streamlit.
+- Add a few repeatable test questions as an evaluation checklist.

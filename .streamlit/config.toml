@@ -1,0 +1,69 @@
+[theme]
+base = "light"
+
+# Elegant color scheme
+primaryColor = "#0066CC"           # Elegant blue for buttons and links
+backgroundColor = "#FFFFFF"        # Beautiful white background
+secondaryBackgroundColor = "#F5F7FA"  # Nice grey for widgets and sidebar
+textColor = "#1A1D21"              # Dark grey for better readability
+
+# Supporting colors
+linkColor = "#0066CC"
+codeTextColor = "#1A1D21"
+codeBackgroundColor = "#F5F7FA"
+borderColor = "#E0E4E8"
+
+# Color palette for status indicators
+redColor = "#DC2626"
+orangeColor = "#F59E0B"
+yellowColor = "#FBBF24"
+greenColor = "#10B981"
+blueColor = "#0066CC"
+violetColor = "#8B5CF6"
+grayColor = "#6B7280"
+
+# Background variants for badges
+greenBackgroundColor = "#D1FAE5"
+greenTextColor = "#065F46"
+redBackgroundColor = "#FEE2E2"
+redTextColor = "#991B1B"
+blueBackgroundColor = "#DBEAFE"
+blueTextColor = "#1E40AF"
+
+# Typography
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+baseFontSize = 16
+baseFontWeight = 400
+codeFont = "'JetBrains Mono':https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+codeFontSize = "0.875rem"
+codeFontWeight = 400
+
+# Heading hierarchy
+headingFont = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap"
+headingFontSizes = ["32px", "28px", "24px", "20px", "16px", "14px"]
+headingFontWeights = [700, 600, 600, 600, 500, 500]
+
+# Borders and radius
+baseRadius = "8px"
+buttonRadius = "8px"
+showWidgetBorder = true
+showSidebarBorder = true
+
+# Links
+linkUnderline = false
+
+# Chart colors
+chartCategoricalColors = ["#0066CC", "#10B981", "#8B5CF6", "#F59E0B", "#DC2626", "#6B7280", "#EC4899"]
+
+# Dataframe styling
+dataframeBorderColor = "#E0E4E8"
+dataframeHeaderBackgroundColor = "#F5F7FA"
+
+# Sidebar customization
+[theme.sidebar]
+backgroundColor = "#F5F7FA"
+secondaryBackgroundColor = "#E8EBF0"
+codeBackgroundColor = "#E8EBF0"
+textColor = "#1A1D21"
+borderColor = "#E0E4E8"
+primaryColor = "#0066CC"

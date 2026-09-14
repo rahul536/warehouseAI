@@ -1,0 +1,40 @@
+                    WarehouseAI
+                         │
+                  ┌──────▼──────┐
+                  │ AI Agent     │
+                  │ Orchestrator │
+                  └──────┬──────┘
+                         │
+          ┌──────────────┼──────────────┐
+          ▼              ▼              ▼
+     Order Agent    Inventory Agent   Movement Agent
+          │              │              │
+          └──────────────┼──────────────┘
+                         ▼
+                  PostgreSQL WMS
+
+
+                    ┌──────────────────┐
+                    │   WarehouseAI    │
+                    └────────┬─────────┘
+                             │
+                    Natural Language
+                             │
+                             ▼
+                 ┌──────────────────────┐
+                 │    AI Orchestrator   │
+                 └──────────┬───────────┘
+                            │
+          ┌─────────────────┼─────────────────┐
+          ▼                 ▼                 ▼
+   Inventory Agent    Order Agent      Movement Agent
+          │                 │                 │
+          └─────────────────┼─────────────────┘
+                            ▼
+                    Investigation Agent
+                            │
+                            ▼
+                     GenAI Reasoning
+                            │
+                            ▼
+                  Human-readable answer               

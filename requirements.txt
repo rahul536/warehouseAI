@@ -1,0 +1,10 @@
+psycopg[binary]
+python-dotenv
+openai
+streamlit
+langgraph
+chromadb
+pypdf
+pandas
+openpyxl
+pillow

@@ -1,0 +1,254 @@
+                         ┌───────────────────────┐
+                         │       USER            │
+                         │ Warehouse Question    │
+                         │ "Why is ORD10004      │
+                         │  partially allocated?"│
+                         └───────────┬───────────┘
+                                     │
+                                     ▼
+                    ┌─────────────────────────────┐
+                    │       APPLICATION           │
+                    │                             │
+                    │  Streamlit UI               │
+                    │  streamlit_app.py           │
+                    │                             │
+                    └──────────────┬──────────────┘
+                                   │
+                                   ▼
+                    ┌─────────────────────────────┐
+                    │      ask_warehouse_ai()     │
+                    │            OR               │
+                    │      run_chat_turn()        │
+                    │                             │
+                    │  Sends question + history   │
+                    │  + SYSTEM_INSTRUCTIONS      │
+                    │  + available TOOLS          │
+                    └──────────────┬──────────────┘
+                                   │
+                                   ▼
+                    ┌─────────────────────────────┐
+                    │        OPENAI MODEL         │
+                    │      Responses API          │
+                    │                             │
+                    │  Understands the question   │
+                    │  and decides whether a      │
+                    │  WMS tool is required       │
+                    └──────────────┬──────────────┘
+                                   │
+                         ┌─────────┴─────────┐
+                         │                   │
+                         ▼                   ▼
+                 ┌──────────────┐    ┌────────────────┐
+                 │ No tool      │    │ Tool required  │
+                 │ required     │    │                │
+                 └──────┬───────┘    └───────┬────────┘
+                        │                     │
+                        │                     ▼
+                        │          ┌─────────────────────┐
+                        │          │ call_wms_tool()     │
+                        │          │ warehouse_agent.py  │
+                        │          └──────────┬──────────┘
+                        │                     │
+                        │                     ▼
+                        │          ┌─────────────────────┐
+                        │          │ Select WMS Function │
+                        │          └──────────┬──────────┘
+                        │                     │
+                        │        ┌────────────┼────────────┐
+                        │        │            │            │
+                        │        ▼            ▼            ▼
+                        │   ┌──────────┐ ┌──────────┐ ┌───────────┐
+                        │   │ Order    │ │Inventory │ │Movements  │
+                        │   │ Tools    │ │ Tools    │ │ Tool      │
+                        │   └────┬─────┘ └────┬─────┘ └─────┬─────┘
+                        │        │            │             │
+                        │        └────────────┼─────────────┘
+                        │                     │
+                        │                     ▼
+                        │          ┌─────────────────────┐
+                        │          │     wms_tools.py    │
+                        │          │                     │
+                        │          │      SQL Query      | 
+                        │          └──────────┬──────────┘
+                        │                     │
+                        │                     ▼
+                        │          ┌─────────────────────┐
+                        │          │     WMS DATABASE    │
+                        │          │                     │
+                        │          │ order_position_...  │
+                        │          │ inventory_details   │
+                        │          │ movement_details    │
+                        │          └──────────┬──────────┘
+                        │                     │
+                        │                     ▼
+                        │          ┌─────────────────────┐
+                        │          │   Tool Result       │
+                        │          │ FOUND / PARTIAL /   │
+                        │          │ NOT_FOUND / etc.    │
+                        │          └──────────┬──────────┘
+                        │                     │
+                        │                     ▼
+                        │          ┌─────────────────────┐
+                        │          │ Function result     │
+                        │          │ sent back to        │
+                        │          │ OpenAI model        │
+                        │          └──────────┬──────────┘
+                        │                     │
+                        │                     ▼
+                        │          ┌─────────────────────┐
+                        │          │ OpenAI analyzes     │
+                        │          │ actual WMS data     │
+                        │          │ and creates answer  │
+                        │          └──────────┬──────────┘
+                        │                     │
+                        └─────────────────────┘
+                                              │
+                                              ▼
+                              ┌─────────────────────────┐
+                              │     FINAL ANSWER        │
+                              │                         │
+                              │ Simple operational      │
+                              │ explanation to user     │
+                              └─────────────────────────┘
+
+
+
+Special shortage-investigation flow
+Your investigate_order_shortage is slightly different because it is a controlled workflow inside the WMS layer. I would show it separately in your architecture:
+
+User asks:
+"Why is ORD10004 partially allocated?"
+              │
+              ▼
+       OpenAI Model
+              │
+              ▼
+investigate_order_shortage()
+              │
+              ▼
+┌───────────────────────────────┐
+│ 1. Check Order Allocation     │
+│    get_order_allocation()     │
+└───────────────┬───────────────┘
+                │
+                ▼
+┌───────────────────────────────┐
+│ 2. Identify Shortage Item(s)  │
+│    requested > allocated      │
+└───────────────┬───────────────┘
+                │
+                ▼
+┌───────────────────────────────┐
+│ 3. Check Item Inventory       │
+│    get_item_inventory()       │
+│                               │
+│    Physical                   │
+│    Allocated                  │
+│    Blocked                    │
+│    Available                  │
+└───────────────┬───────────────┘
+                │
+                ▼
+┌───────────────────────────────┐
+│ 4. Check Recent Movements     │
+│    get_movements()            │
+└───────────────┬───────────────┘
+                │
+                ▼
+┌───────────────────────────────┐
+│ 5. Build Investigation        │
+│    Summary / Root Cause       │
+└───────────────┬───────────────┘
+                │
+                ▼
+        Return result to
+          OpenAI Model
+                │
+                ▼
+          Explain to User
+
+
+Overall architecture
+For a presentation or README, I'd simplify everything into this version:
+
+                 ┌───────────────┐
+                 │     USER      │
+                 └───────┬───────┘
+                         │
+                         ▼
+              ┌────────────────────┐
+              │  Streamlit / CLI   │
+              │                    │
+              │ streamlit_app.py   │
+              │ warehouse_agent.py │
+              └─────────┬──────────┘
+                        │
+                        ▼
+              ┌────────────────────┐
+              │   OpenAI Model     │
+              │                    │
+              │ Understands query  │
+              │ Selects WMS tool   │
+              └─────────┬──────────┘
+                        │
+                        ▼
+              ┌────────────────────┐
+              │ call_wms_tool()    │
+              │                    │
+              │ Tool Router        │
+              └─────────┬──────────┘
+                        │
+          ┌─────────────┼─────────────┐
+          ▼             ▼             ▼
+     ┌─────────┐   ┌─────────┐   ┌──────────┐
+     │ Orders  │   │Inventory│   │Movements │
+     │         │   │         │   │          │
+     │ Details │   │ Item    │   │ Recent   │
+     │ Allocate│   │ Overview│   │ Events   │
+     └────┬────┘   └────┬────┘   └────┬─────┘
+          │             │             │
+          └─────────────┼─────────────┘
+                        ▼
+              ┌────────────────────┐
+              │    wms_tools.py    │
+              │                    │
+              │ SQL + DB Access    │
+              └─────────┬──────────┘
+                        │
+                        ▼
+              ┌────────────────────┐
+              │    WMS Database    │
+              │                    │
+              │ Orders             │
+              │ Inventory          │
+              │ Movements          │
+              └─────────┬──────────┘
+                        │
+                        ▼
+              ┌────────────────────┐
+              │   Tool Result      │
+              └─────────┬──────────┘
+                        │
+                        ▼
+              ┌────────────────────┐
+              │   OpenAI Model     │
+              │                    │
+              │ Analyze + Explain  │
+              └─────────┬──────────┘
+                        │
+                        ▼
+                 ┌───────────────┐
+                 │ FINAL ANSWER  │
+                 │  to the user  │
+                 └───────────────┘
+
+
+warehouse_agent.py is essentially the AI orchestration layer, while wms_tools.py is the data-access layer.
+
+So the clean mental model is:
+
+User → UI/CLI → AI Agent → Tool Router → WMS Tools → Database → Tool Result → AI → Answer
+
+And for a shortage investigation:
+
+AI → investigate_order_shortage() → Allocation → Shortage Item → Inventory → Movements → Root Cause → AI → Answer

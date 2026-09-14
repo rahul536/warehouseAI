@@ -1,0 +1,202 @@
+PostgreSQL 18
+    │
+    └── warehouse_ai
+          │
+          └── public
+                ├── warehouse_site_details
+                ├── storage_location_details
+                ├── storage_bin_details
+                ├── item_details
+                ├── inventory_details
+                ├── customer_details
+                ├── order_header_details
+                ├── order_position_details
+                ├── goods_receipt_details
+                └── movement_details
+
+
+warehouse_site_details
+	ws_warehouse_id              
+      ws_site_id                   
+      ws_site_name                 
+      ws_description               
+      ws_status
+	ws_address_line1
+	ws_address_line2
+	ws_city
+	ws_state
+	ws_country
+	ws_zip
+	ws_phone
+	ws_fax
+	ws_email
+      ws_created_at                
+      ws_updated_at        
+
+
+storage_location_details
+	sl_warehouse_id 
+      sl_site_id      
+      sl_zone
+      sl_location_id
+      sl_status     
+	sl_mixed_hu_allowed          
+      sl_inventory_addition_allowed
+	sl_capacity_check_enabled    
+	sl_allocation_enabled
+      sl_replenishment_enabled	
+	sl_created_at   
+	sl_updated_at   
+
+storage_bin_details
+	sb_warehouse_id 
+      sb_site_id      
+      sb_zone
+      sb_location_id
+	sb_aisle_number
+      sb_rack_number
+	sb_bin_number_horizontal
+	sb_bin_number_vertical
+      sb_bin_status     
+	sb_created_at   
+	sb_updated_at   
+	
+
+item_details
+	it_warehouse_id 
+      it_site_id   
+	it_item_id       
+      it_item_name     
+	it_description   
+      it_uom           
+      it_unit_weight_kg
+      it_unit_volume_m3
+	it_bbd_mandatory
+	it_batch_mandatory
+      it_status        
+      it_created_at    
+      it_updated_at    
+	
+inventory_details
+	iv_warehouse_id    
+      iv_site_id         
+	iv_item_id
+	iv_location_id
+	iv_aisle_number
+	iv_rack_number
+	iv_bin_number_horizontal
+	iv_bin_number_vertical
+	iv_load_unit_id
+	iv_physical_quantity
+	iv_quantity_unit
+	iv_allocated_quantity
+	iv_available_quantity
+      iv_blocked_quantity
+      iv_block_reason
+	iv_batch_number
+	iv_best_before_date
+	iv_received_at
+      iv_created_at
+      iv_updated_at
+
+
+customer_details
+	cu_warehouse_id 
+      cu_site_id    	
+      cu_customer_number
+      cu_customer_name
+	cu_address_line1
+	cu_address_line2
+	cu_city
+	cu_state
+	cu_country
+	cu_zip
+	cu_phone
+	cu_fax
+	cu_email
+      cu_customer_status     
+	cu_created_at   
+	cu_updated_at  
+    	
+	       
+order_header_details    
+      oh_warehouse_id 
+      oh_site_id
+      oh_order_number
+      oh_order_date
+	oh_order_time
+	oh_order_status
+	oh_allocation_status
+	oh_picking_status
+	oh_packing_status
+	oh_loading_status
+      oh_customer_number
+      oh_customer_name
+	oh_address_line1
+	oh_address_line2
+	oh_city
+	oh_state
+	oh_country
+	oh_zip
+	oh_phone
+	oh_fax
+	oh_email
+	oh_delivery_date
+	oh_delivery_time
+	oh_created_at   
+	oh_updated_at  
+	
+order_position_details    
+      op_warehouse_id 
+      op_site_id
+      op_order_number
+	op_order_position
+      op_order_item
+	op_order_quantity
+	op_quantity_unit
+	op_created_at   
+	op_updated_at
+	
+goods_receipt_details
+	gr_warehouse_id 
+      gr_site_id
+    	gr_goods_receipt_number
+	gr_goods_receipt_position
+      gr_goods_receipt_item
+	gr_goods_receipt_quantity
+	gr_quantity_unit
+	gr_quality_code
+	gr_goods_receipt_status
+	gr_goods_receipt_date
+	gr_goods_receipt_time
+	gr_created_at   
+	gr_updated_at
+	
+movement_details
+	mo_warehouse_id 
+      mo_site_id
+	mo_movement_id
+	mo_movement_type (e.g. entry/exit)
+	mo_movement_status
+	mo_movement_item
+	mo_movement_quantity  
+	mo_movement_quantity_unit
+	mo_movement_from_entry_area
+      mo_movement_from_location_id
+	mo_movement_from_aisle_number
+	mo_movement_from_rack_number
+	mo_movement_from_bin_hor
+	mo_movement_from_bin_ver
+	mo_movement_to_location_id
+	mo_movement_to_aisle_number
+	mo_movement_to_rack_number
+	mo_movement_to_bin_hor
+	mo_movement_to_bin_ver
+	mo_movement_to_exit_area
+	mo_movement_date
+	mo_movement_time
+	mo_created_at   
+	mo_updated_at
+	
+
+
