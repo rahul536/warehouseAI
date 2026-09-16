@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -7,11 +8,13 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 
+# Add project root to Python path and load .env
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(PROJECT_ROOT))
+load_dotenv(PROJECT_ROOT / ".env")
+
 VECTOR_DIR = PROJECT_ROOT / "knowledge_base" / "vector_store"
 COLLECTION_NAME = "warehouse_knowledge"
-
-load_dotenv()
 
 EMBEDDING_MODEL = os.getenv(
     "RAG_EMBEDDING_MODEL",

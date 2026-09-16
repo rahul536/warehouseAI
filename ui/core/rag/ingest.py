@@ -4,6 +4,7 @@ import hashlib
 import json
 import mimetypes
 import os
+import sys
 from pathlib import Path
 
 import chromadb
@@ -13,7 +14,10 @@ from openai import OpenAI
 from pypdf import PdfReader
 
 
+# Add project root to Python path and load .env
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(PROJECT_ROOT))
+load_dotenv(PROJECT_ROOT / ".env")
 
 RAW_DIR = PROJECT_ROOT / "knowledge_base" / "raw"
 PROCESSED_DIR = PROJECT_ROOT / "knowledge_base" / "processed"
