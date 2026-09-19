@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import sys
+import time
 from pathlib import Path
 
 # Add project root to Python path
@@ -21,6 +22,7 @@ from src.wms_tools import (
 
 from agents.shortage_graph import investigate_order_shortage
 from ui.core.rag.retrieve import retrieve_knowledge, format_chunks_for_context
+from src.metrics import MetricsTracker, format_time_ms, format_cost_usd, calculate_cost
 
 load_dotenv()
 
@@ -235,8 +237,16 @@ def call_wms_tool(tool_name: str, arguments: dict) -> dict:
     return {"error": f"Unknown tool requested: {tool_name}"}
 
 
-def ask_warehouse_ai(question: str) -> str:
+def ask_warehouse_ai(question: str, metrics_tracker: MetricsTracker | None = None) -> str:
     client = OpenAI()
+
+    if metrics_tracker:
+        metrics_tracker.start_request()
+
+    # Track total AI time and tokens across all API calls
+    total_ai_start = time.time() if metrics_tracker else None
+    total_input_tokens = 0
+    total_output_tokens = 0
 
     response = client.responses.create(
         model=MODEL,
@@ -246,6 +256,10 @@ def ask_warehouse_ai(question: str) -> str:
         parallel_tool_calls=False,
         store=False,
     )
+
+    if metrics_tracker and hasattr(response, 'usage') and response.usage:
+        total_input_tokens += response.usage.input_tokens
+        total_output_tokens += response.usage.output_tokens
 
     conversation_items = list(response.output)
 
@@ -257,10 +271,24 @@ def ask_warehouse_ai(question: str) -> str:
         ]
 
         if not function_calls:
+            if metrics_tracker:
+                total_ai_time = (time.time() - total_ai_start) * 1000
+                metrics_tracker.current_request_metrics.ai_time_ms = total_ai_time
+                metrics_tracker.current_request_metrics.input_tokens = total_input_tokens
+                metrics_tracker.current_request_metrics.output_tokens = total_output_tokens
+                metrics_tracker.current_request_metrics.total_tokens = total_input_tokens + total_output_tokens
+                metrics_tracker.current_request_metrics.estimated_cost_usd = calculate_cost(
+                    MODEL, total_input_tokens, total_output_tokens
+                )
+                metrics_tracker.current_request_metrics.model = MODEL
+                metrics_tracker.end_request(MODEL)
             return response.output_text
 
         for function_call in function_calls:
             arguments = json.loads(function_call.arguments)
+
+            if metrics_tracker:
+                metrics_tracker.start_tool_call()
 
             try:
                 tool_result = call_wms_tool(function_call.name, arguments)
@@ -272,6 +300,9 @@ def ask_warehouse_ai(question: str) -> str:
                         "Please try again."
                     ),
                 }
+
+            if metrics_tracker:
+                metrics_tracker.end_tool_call()
 
             # For knowledge retrieval, format the context for AI consumption
             tool_result_for_ai = tool_result
@@ -299,6 +330,10 @@ def ask_warehouse_ai(question: str) -> str:
             store=False,
         )
 
+        if metrics_tracker and hasattr(response, 'usage') and response.usage:
+            total_input_tokens += response.usage.input_tokens
+            total_output_tokens += response.usage.output_tokens
+
         conversation_items.extend(response.output)
 
 
@@ -309,10 +344,26 @@ def main() -> None:
     parser.add_argument("question", help="Your warehouse question in quotation marks.")
     args = parser.parse_args()
 
-    answer = ask_warehouse_ai(args.question)
+    metrics_tracker = MetricsTracker()
+    answer = ask_warehouse_ai(args.question, metrics_tracker=metrics_tracker)
 
     print("\nWarehouseAI:")
     print(answer)
+
+    # Print performance metrics
+    request_metrics = metrics_tracker.current_request_metrics
+    print("\n" + "="*50)
+    print("REQUEST METRICS")
+    print("="*50)
+    print(f"Total latency: {format_time_ms(request_metrics.total_latency_ms)}")
+    print(f"AI processing time: {format_time_ms(request_metrics.ai_time_ms)}")
+    print(f"Tool execution time: {format_time_ms(request_metrics.tool_time_ms)}")
+    print(f"Total tokens: {request_metrics.total_tokens:,}")
+    print(f"Input tokens: {request_metrics.input_tokens:,}")
+    print(f"Output tokens: {request_metrics.output_tokens:,}")
+    print(f"Estimated cost: {format_cost_usd(request_metrics.estimated_cost_usd)}")
+    print(f"Model: {request_metrics.model}")
+    print("="*50)
 
 
 if __name__ == "__main__":
