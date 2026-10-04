@@ -18,6 +18,7 @@ from src.wms_tools import (
     get_movements,
     get_order_allocation,
     get_order_details,
+    get_material_handling,
 )
 
 from agents.shortage_graph import investigate_order_shortage
@@ -32,7 +33,7 @@ SYSTEM_INSTRUCTIONS = """
 You are WarehouseAI, a helpful warehouse operations assistant.
 
 You answer questions using data from two sources:
-1. Live WMS database tools (orders, inventory, movements, allocation)
+1. Live WMS database tools (orders, inventory, movements, allocation, material handling points)
 2. Knowledge base documents (SOPs, procedures, logistics documentation)
 
 Use WMS tools for questions about:
@@ -40,6 +41,7 @@ Use WMS tools for questions about:
 - Inventory levels, item inventory, blocked stock
 - Warehouse movements, recent activity
 - Shortage investigation and root-cause analysis
+- Material handling points (MHS) and warehouse equipment
 
 Use the knowledge base tool for questions about:
 - Standard operating procedures (SOPs)
@@ -196,6 +198,25 @@ TOOLS = [
             "additionalProperties": False,
         },
     },
+    {
+            "type": "function",
+            "name": "get_material_handling",
+            "description": "Get an overview of material handling points (MHS) in the warehouse.",
+            "strict": True,
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 100,
+                        "description": "Maximum number of mhs points to return.",
+                    }
+                },
+                "required": ["limit"],
+                "additionalProperties": False,
+            },
+        },
 ]
 
 
@@ -221,6 +242,9 @@ def call_wms_tool(tool_name: str, arguments: dict) -> dict:
             )
     if tool_name == "investigate_order_shortage":
         return investigate_order_shortage(arguments["order_number"])
+
+    if tool_name == "get_material_handling":
+        return get_material_handling(limit=arguments["limit"])
 
     if tool_name == "retrieve_knowledge":
         result = retrieve_knowledge(

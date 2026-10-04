@@ -63,14 +63,19 @@ def show_login_page():
 
     .stApp {
         background: linear-gradient(
-            135deg,
-            #0a2540 0%,
-            #1e3a5f 100%
+            120deg,
+            #134074 40%,
+            #13315c 100%
         );
     }
 
     /* Reduce Streamlit's default top spacing */
     .block-container {
+        background: linear-gradient(
+            120deg,
+            #134074 40%,
+            #13315c 100%
+        );
         padding-top: 4rem;
         padding-bottom: 2rem;
         max-width: 1400px;
@@ -169,7 +174,7 @@ def show_login_page():
     }
 
     .platform-title {
-        color: #4a5568;
+        color: white;
         font-size: 1.05rem;
         font-weight: 600;
         margin: 0 0 1.5rem 0;
@@ -250,7 +255,7 @@ def show_login_page():
        ======================================================== */
 
     .footer-text {
-        color: #718096;
+        color: white;
         font-size: 0.85rem;
         text-align: center;
         margin-top: 1.5rem;
@@ -469,13 +474,19 @@ def show_main_app():
     .stApp {
         background: linear-gradient(
             135deg,
-            #0a2540 0%,
-            #1e3a5f 100%
+            #134074 40%,
+            #13315c 100%
         );
     }
 
     /* Reduce Streamlit's default top spacing */
     .block-container {
+        background: linear-gradient(
+            135deg,
+            #134074 40%,
+            #13315c 100%
+        );
+        color: black;
         padding-top: 4rem;
         padding-bottom: 2rem;
         max-width: 1400px;
@@ -636,8 +647,7 @@ def show_main_app():
     .stChatInput {
         background: linear-gradient(
             135deg,
-            #0a2540 0%,
-            #1e3a5f 100%
+            #13315C 50%
         ) !important;
         padding: 1rem 1.5rem !important;
         border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
@@ -689,8 +699,8 @@ def show_main_app():
 [data-testid="stBottom"] {
     background: linear-gradient(
         135deg,
-        #0a2540 0%,
-        #1e3a5f 100%
+        #134074 50%,
+        #13315c 100%
     ) !important;
 }
 
@@ -750,16 +760,15 @@ def show_main_app():
     .css-1d391kg {
         background: linear-gradient(
             135deg,
-            #0a2540 0%,
-            #1e3a5f 100%
+            #13315C 50%
         );
     }
 
     [data-testid="stSidebar"] {
         background: linear-gradient(
             135deg,
-            #0a2540 0%,
-            #1e3a5f 100%
+            #134074 50%,
+            #13315c 100%
         );
     }
 
@@ -927,7 +936,7 @@ def show_main_app():
 
     # SIDEBAR
     with st.sidebar:
-
+                
         st.markdown(
             '<h2 style="color: white; font-size: 1.5rem; font-weight: 600; margin: 1rem 0;">Session</h2>',
             unsafe_allow_html=True,

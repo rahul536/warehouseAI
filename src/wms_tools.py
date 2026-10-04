@@ -378,3 +378,63 @@ def get_inventory(limit: int = 50) -> dict:
         "items": items,
     }
 
+def get_material_handling(limit: int = 50) -> dict:
+    """
+    Return material handling information related to WCS system. 
+    name of the system, point, status, description, current order and current load unit.
+    mh_system_name, mh_point, mh_status, mh_status_description, mh_current_order, mh_current_load_unit
+    mh_system_name = name of the system
+    mh_point = point of the system
+    mh_status = status of the system
+    mh_status_description = description of the status
+    mh_current_order = current order being processed by the system.
+    mh_current_load_unit = current load unit on the conveyor system.    
+    """
+
+    query = """
+        SELECT
+            mh_system_name,
+            mh_point,
+            mh_status,
+            mh_status_description,
+            mh_current_order,
+            mh_current_load_unit
+        FROM Material_handling_system
+        ORDER BY mh_system_name ASC
+        LIMIT %(limit)s;
+    """
+
+    with get_connection() as connection:
+        with connection.cursor() as cursor:
+            cursor.execute(query, {"limit": limit})
+            rows = cursor.fetchall()
+
+    mhs_point = []
+
+    for row in rows:
+        (
+            mh_system_name,
+            mh_point,
+            mh_status,
+            mh_status_description,
+            mh_current_order,
+            mh_current_load_unit,
+        ) = row
+
+        mhs_point.append(
+            {
+                "mh_system_name": mh_system_name,
+                "mh_point": mh_point,
+                "mh_status": mh_status,
+                "mh_status_description": mh_status_description,
+                "mh_current_order": mh_current_order,
+                "mh_current_load_unit": mh_current_load_unit,
+            }
+        )
+
+    return {
+        "status": "FOUND",
+        "mhs_point_count": len(mhs_point),
+        "points": mhs_point,
+    }
+
